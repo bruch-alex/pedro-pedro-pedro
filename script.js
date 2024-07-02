@@ -1,6 +1,7 @@
 let image = document.querySelector("img")
 let body = document.querySelector("body")
 let counter = 0
+let hue = counter
 
 
 if (navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)) {
@@ -18,7 +19,7 @@ function handleWheelMoveEvent(event) {
     console.log(counter)
 
     image.style.rotate = counter + "deg"
-    let hue = counter
+    hue = counter
     body.style.background = "hsl(" + hue + ", 70%, 30%)"
 }
 
@@ -43,8 +44,9 @@ function handleTouchMoveEvent(event) {
     const deltaX = currentX - startX;
     const deltaY = currentY - startY;
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-    let hue = distance
+    
+    counter += distance
+    hue = counter
     body.style.background = "hsl(" + hue + ", 70%, 30%)"
     image.style.rotate = counter + "deg"
     // Update the starting position for the next move
