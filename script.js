@@ -33,7 +33,7 @@ function handleTouchStartEvent(event) {
     console.log('Touch start:', startX, startY);
 }
 
-function handleTouchMove(event) {
+function handleTouchMoveEvent(event) {
     // Get the current touch position
     const touch = event.touches[0];
     const currentX = touch.clientX;
